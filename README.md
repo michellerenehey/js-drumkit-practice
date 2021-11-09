@@ -12,7 +12,15 @@ JS 30 - day 1!
 
 ## JS
 - logic: 
-    - add a keydown event listener for each of the 9 keys. on the event, run a function, which plays the connected (remember: connected by "data-key") sound.
+    - add a keydown event listener for each of the 9 keys. on the event (kedown) run a function: 
+        - play a sound: 
+            - grab the audio for the particular key that was keyed down (document.querySelector(`audio[data-key="${e.keyDown}"]`), and audio.play(). 
+            - add "if no audio, stop the function" 
+            - add "audio.currentTime = 0" so that the sound can keep playing
+        - add animation to the key: 
+            - grab the class of "key" for the particular key that was keyed down (document.querySelector(`.key[data-key="${e.keyDown}"]`), and add a class of "playing". 
+            - loop through each key, listen for when the transition-end happens, and add a "transition end" event that will fire when the animation stops
+
 
 ## CSS
 - going to use the CSS built for me by Wes, but will re-write it line by line so that I understand 
